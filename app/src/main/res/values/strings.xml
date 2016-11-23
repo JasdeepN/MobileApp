@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MobileApp</string>
+
+    <string name="login_username_hint">Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_login_btn">Login</string>
+    <string name="login_signUp_btn">Sign up</string>
+
+    <string name="register_username_hint">Username</string>
+    <string name="register_password_hint">Password</string>
+    <string name="register_passwordConfirm_hint">Confirm password</string>
+    <string name="register_signUp_btn">Sign up</string>
+    <string name="register_cancel_btn">Cancel</string>
+</resources>
