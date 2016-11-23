@@ -5,10 +5,15 @@
     <string name="login_password_hint">Password</string>
     <string name="login_login_btn">Login</string>
     <string name="login_signUp_btn">Sign up</string>
+    <string name="login_loginFail_toast">Incorrect username/password</string>
+
 
     <string name="register_username_hint">Username</string>
     <string name="register_password_hint">Password</string>
     <string name="register_passwordConfirm_hint">Confirm password</string>
     <string name="register_signUp_btn">Sign up</string>
     <string name="register_cancel_btn">Cancel</string>
+    <string name="register_passwordNoMatch_toast">Passwords do not match</string>
+    <string name="register_userExists_toast">Username already exists</string>
+    <string name="register_blank_toast">Username/password cannot be empty</string>
 </resources>

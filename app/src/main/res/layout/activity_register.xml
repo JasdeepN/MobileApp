@@ -11,19 +11,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".RegisterActivity">
 
-    <android.support.design.widget.TextInputEditText
+    <EditText
+        android:id="@+id/register_username_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:maxLines="1"
         android:hint="@string/register_username_hint"/>
-    <android.support.design.widget.TextInputEditText
+    <EditText
+        android:id="@+id/register_password_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:maxLines="1"
         android:hint="@string/register_password_hint"/>
-    <android.support.design.widget.TextInputEditText
+    <EditText
+        android:id="@+id/register_passwordConfirm_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
