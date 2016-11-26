@@ -16,4 +16,9 @@
     <string name="register_passwordNoMatch_toast">Passwords do not match</string>
     <string name="register_userExists_toast">Username already exists</string>
     <string name="register_blank_toast">Username/password cannot be empty</string>
+
+    <string name="title_activity_tool_menu_activity">settings</string>
+    <string name="title_activity_landing_page">landing_page</string>
+    
+    <string name="temporary_landing_page">temporary landing page"</string>
 </resources>
