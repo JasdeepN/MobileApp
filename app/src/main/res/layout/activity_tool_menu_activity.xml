@@ -11,9 +11,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_menu_save"
-        android:onClick="onSaveClick" />
+        android:onClick="onSaveClick"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="20dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_gravity="bottom|end"
+        app:srcCompat="@android:drawable/ic_menu_manage"
+        android:id="@+id/color_picker"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="90dp" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -23,6 +34,7 @@
         <include layout="@layout/activity_draw_area"
             android:layout_height="match_parent"
             android:layout_weight="0" />
+
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
