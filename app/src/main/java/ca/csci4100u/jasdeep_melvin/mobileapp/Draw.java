@@ -2,6 +2,7 @@ package ca.csci4100u.jasdeep_melvin.mobileapp;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.app.Activity;
@@ -15,6 +16,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 
 import static ca.csci4100u.jasdeep_melvin.mobileapp.R.id.color_picker;
 import static ca.csci4100u.jasdeep_melvin.mobileapp.R.id.fab;
@@ -57,6 +61,7 @@ public class Draw extends AppCompatActivity implements View.OnClickListener{
             Toast.makeText(getApplicationContext(), "clear", Toast.LENGTH_SHORT).show();
             DrawingView.getDrawView().clearDrawing();
         } else if (target.equals(send_button)){
+            send();
             Toast.makeText(getApplicationContext(), "send", Toast.LENGTH_SHORT).show();
         } else if (target.equals(fab_button)) {
             DrawingView.getDrawView().saveDrawing();
@@ -73,5 +78,11 @@ public class Draw extends AppCompatActivity implements View.OnClickListener{
         if(resultCode==1){
             DrawingView.getDrawView().saveDrawing();
         }
+    }
+
+    private void send() {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
+
     }
 }

@@ -12,12 +12,12 @@
     tools:context=".RegisterActivity">
 
     <EditText
-        android:id="@+id/register_username_edit"
+        android:id="@+id/register_email_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:maxLines="1"
-        android:hint="@string/register_username_hint"/>
+        android:hint="@string/register_email_hint"/>
     <EditText
         android:id="@+id/register_password_edit"
         android:layout_width="match_parent"

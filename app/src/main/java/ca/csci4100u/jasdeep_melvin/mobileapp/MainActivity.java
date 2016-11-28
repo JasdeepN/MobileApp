@@ -21,6 +21,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
@@ -35,6 +37,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        isStoragePermissionGranted();
+        isContactPermissionGranted();
+
+        if(FirebaseAuth.getInstance().getCurrentUser() == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            this.startActivity(intent);
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         setContentView(R.layout.activity_landing_page);
 
         go_to_canvas_button = (Button)findViewById(R.id.open_canvas_button);
@@ -48,9 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ll = (LinearLayout) findViewById(R.id.landing_page_layout);
         list = (ListView) findViewById(R.id.contact_list_view);
-
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        this.startActivity(intent);
     }
 
     @Override
@@ -59,8 +71,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(target.getContext(), Draw.class);
             target.getContext().startActivity(i);
         } else if (target.equals(log_out_button)){
-            this.finish();
-            return;
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(this, LoginActivity.class);
+            this.startActivity(intent);
         } else if (target.equals(get_contacts)) {
             LoadContactsAyscn lca = new LoadContactsAyscn();
             lca.execute();
@@ -120,6 +133,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+    }
+
+    public  boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG,"Permission is granted");
+                return true;
+            } else {
+
+                Log.v(TAG,"Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Permission is granted");
+            return true;
+        }
+    }
+
+    public  boolean isContactPermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(Manifest.permission.READ_CONTACTS)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG,"Permission is granted");
+                return true;
+            } else {
+
+                Log.v(TAG,"Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, 1);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Permission is granted");
+            return true;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
+            Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
+            //resume tasks needing this permission
+        }
     }
 }
 
