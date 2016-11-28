@@ -21,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         isStoragePermissionGranted();
         isContactPermissionGranted();
-//        checkSelfPermission(Manifest.permission.READ_CONTACTS);
         setContentView(R.layout.activity_login);
         helper = new AccountDBHelper(this);
     }
@@ -36,8 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText password = (EditText) findViewById(R.id.login_password_edit);
         if (helper.loginPass(username.getText().toString(), password.getText().toString())) {
             this.finish();
-            Intent intent = new Intent(this, Draw.class);
-            this.startActivity(intent);
+            startActivity(new Intent(this, Draw.class));
         } else {
             Toast.makeText(getBaseContext(), R.string.login_loginFail_toast, Toast.LENGTH_SHORT).show();
         }

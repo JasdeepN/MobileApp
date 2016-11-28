@@ -47,7 +47,6 @@ public class DrawingView extends View {
     Context context;
     private Paint circlePaint;
     private Path circlePath;
-//    static ColorPicker.OnColorChangedListener mListener;
 
 
     public DrawingView(Context c, AttributeSet attrs) {
@@ -91,7 +90,7 @@ public class DrawingView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        width = w;      // don't forget these
+        width = w;
         height = h;
         mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         mCanvas = new Canvas(mBitmap);
@@ -249,7 +248,7 @@ public class DrawingView extends View {
                 mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
                 mPaint.setShader(s);
                 mPaint.setStyle(Paint.Style.STROKE);
-                mPaint.setStrokeWidth(32);
+                mPaint.setStrokeWidth(50);
 
                 mCenterPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
                 mCenterPaint.setColor(color);
@@ -261,7 +260,7 @@ public class DrawingView extends View {
 
             @Override
             protected void onDraw(Canvas canvas) {
-                float r = CENTER_X - mPaint.getStrokeWidth() * 0.5f;
+                float r = CENTER_X - mPaint.getStrokeWidth() * 0.7f;
 
                 canvas.translate(CENTER_X, CENTER_X);
 
@@ -291,13 +290,12 @@ public class DrawingView extends View {
                 setMeasuredDimension(CENTER_X * 2, CENTER_Y * 2);
             }
 
-            private static final int CENTER_X = 100;
-            private static final int CENTER_Y = 100;
-            private static final int CENTER_RADIUS = 32;
+            private static final int CENTER_X = 400;
+            private static final int CENTER_Y = 400;
+            private static final int CENTER_RADIUS = 125;
 
             private int floatToByte(float x) {
-                int n = java.lang.Math.round(x);
-                return n;
+                return java.lang.Math.round(x);
             }
 
             private int pinToByte(int n) {

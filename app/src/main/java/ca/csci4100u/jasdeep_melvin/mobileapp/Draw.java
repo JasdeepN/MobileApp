@@ -31,7 +31,6 @@ public class Draw extends AppCompatActivity implements View.OnClickListener{
     FloatingActionButton color_pick_fab;
 
     Paint color;
-    Paint new_color;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +42,7 @@ public class Draw extends AppCompatActivity implements View.OnClickListener{
         send_button = (Button) findViewById(R.id.send_button);
         fab_button = (FloatingActionButton) findViewById(fab);
         color_pick_fab = (FloatingActionButton) findViewById(color_picker);
+
         clear_button.setOnClickListener(this);
         fab_button.setOnClickListener(this);
         send_button.setOnClickListener(this);

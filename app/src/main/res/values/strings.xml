@@ -19,6 +19,11 @@
 
     <string name="title_activity_tool_menu_activity">settings</string>
     <string name="title_activity_landing_page">landing_page</string>
-    
+
     <string name="temporary_landing_page">temporary landing page"</string>
+
+    <string name="go_to_canvas">go to canvas</string>
+    <string name="logout_button_text">logout</string>
+
+    <string name="get_contacts_button_text">contacts</string>
 </resources>
