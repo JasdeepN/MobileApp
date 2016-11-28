@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
         String confirmText = password.getText().toString();
 
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(usernameText, passwordText);
-        auth.createUserWithEmailAndPassword()
+//        auth.createUserWithEmailAndPassword()
 
         if(password.getText().toString().trim().length() <= 0 || username.getText().toString().trim().length() <= 0){
             Toast.makeText(getBaseContext(), R.string.register_blank_toast, Toast.LENGTH_SHORT).show();
