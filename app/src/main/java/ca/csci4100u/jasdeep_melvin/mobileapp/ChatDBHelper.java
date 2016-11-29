@@ -15,8 +15,8 @@ public class ChatDBHelper extends SQLiteOpenHelper {
     private static final String CREATE_STATEMENT = "" +
             "create table chat(" +
             " email varchar(100) primary key," +
-            " yourLastMessage varchar(SQLITE_MAX_LENGTH)," +
-            " theirLastMessage varchar(SQLITE_MAX_LENGTH))";
+            " yourLastMessage varchar(100)," +
+            " theirLastMessage varchar(100))";
 
     private static final String DROP_STATEMENT = "" +
             "drop table chat";
