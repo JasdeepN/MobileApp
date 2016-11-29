@@ -1,3 +1,8 @@
+/**
+ * Class DrawingView defines a custom View where the user can use their finger
+ * to paint on the canvas, also contains methods to save image to sd card
+ * and colour picker class
+ */
 package ca.csci4100u.jasdeep_melvin.mobileapp;
 
 import android.app.Dialog;
@@ -32,9 +37,6 @@ import java.util.Date;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * Created by jasde on 2016-11-23.
- */
 public class DrawingView extends View {
     static Paint mPaint;
     static DrawingView dv;
@@ -216,21 +218,19 @@ public class DrawingView extends View {
     }
 
     public void saveDrawing() {
-        Bitmap whatTheUserDrewBitmap = getDrawingCache();
+        Bitmap image = getDrawingCache();
 
-        whatTheUserDrewBitmap =
-                ThumbnailUtils.extractThumbnail(whatTheUserDrewBitmap, 512, 512);
+        image = ThumbnailUtils.extractThumbnail(image, 512, 512);
         // NOTE that's an incredibly useful trick for cropping/resizing squares
         // while handling all memory problems etc
         // http://stackoverflow.com/a/17733530/294884
 
-        storeImage(whatTheUserDrewBitmap);
+        storeImage(image);
     }
 
     public Bitmap getBitmap() {
         return getDrawingCache();
     }
-
 
 
     public static class ColorPicker extends Dialog {
@@ -406,6 +406,8 @@ public class DrawingView extends View {
                         }
                         break;
                 }
+
+                colorChanged(mCenterPaint.getColor());
                 return true;
             }
         }

@@ -1,3 +1,9 @@
+/**
+ * Created by Jasdeep Nijjar and Melvin Cheng
+ * Final project for CSCI 4100U
+ * Image drawing app that allows you to broadcast your artwork to all your friends.
+ */
+
 package ca.csci4100u.jasdeep_melvin.mobileapp;
 
 import android.Manifest;
