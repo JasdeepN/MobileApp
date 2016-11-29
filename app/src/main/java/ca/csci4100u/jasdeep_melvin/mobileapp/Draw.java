@@ -1,5 +1,13 @@
-package ca.csci4100u.jasdeep_melvin.mobileapp;
+/**
+ * Created by Jasdeep Nijjar and Melvin Cheng
+ * Custom Draw class to help organize view elements such as buttons and
+ * dispatches methods in other classes when buttons are pressed (save, clear, etc.)
+ *
+ * http://stackoverflow.com/questions/16650419/draw-in-canvas-by-finger-android
+ * used as reference to help make the custom drawing view and colour picker.
+ */
 
+package ca.csci4100u.jasdeep_melvin.mobileapp;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,16 +20,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-
 import java.io.ByteArrayOutputStream;
 
 import static ca.csci4100u.jasdeep_melvin.mobileapp.R.id.color_picker;
 import static ca.csci4100u.jasdeep_melvin.mobileapp.R.id.fab;
-
-
-/**
- * Created by jasde on 2016-11-23.
- */
 
 public class Draw extends AppCompatActivity implements View.OnClickListener{
     Button clear_button;
