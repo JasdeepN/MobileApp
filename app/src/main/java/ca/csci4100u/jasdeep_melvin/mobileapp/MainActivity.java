@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
-        setContentView(R.layout.activity_landing_page);
+        setContentView(R.layout.content_landing_page);
 
         go_to_canvas_button = (Button)findViewById(R.id.open_canvas_button);
         go_to_canvas_button.setOnClickListener(MainActivity.this);

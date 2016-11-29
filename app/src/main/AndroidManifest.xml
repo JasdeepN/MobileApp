@@ -22,15 +22,6 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Draw" />
-        <activity
-            android:name=".tool_menu_activity"
-            android:label="@string/title_activity_tool_menu_activity"
-            android:parentActivityName=".tool_menu_activity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.csci4100u.jasdeep_melvin.mobileapp.tool_menu_activity" />
-        </activity>
     </application>
 
 </manifest>
