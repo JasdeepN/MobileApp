@@ -23,7 +23,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Draw" />
-        <activity android:name=".Receive"></activity>
+        <activity android:name=".PrevMessage"/>
+        <activity android:name=".Receive"/>
     </application>
 
 </manifest>

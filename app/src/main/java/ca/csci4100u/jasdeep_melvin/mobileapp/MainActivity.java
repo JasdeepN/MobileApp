@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button log_out_button;
     Button get_contacts;
     Button get_message;
+    Button prev_message;
     ListView list;
     LinearLayout ll;
 
@@ -68,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         get_message = (Button)findViewById(R.id.open_message);
         get_message.setOnClickListener(MainActivity.this);
 
+        prev_message = (Button)findViewById(R.id.prev_message);
+        prev_message.setOnClickListener(MainActivity.this);
+
         ll = (LinearLayout) findViewById(R.id.landing_page_layout);
         list = (ListView) findViewById(R.id.contact_list_view);
     }
@@ -86,6 +90,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             lca.execute();
         } else if (target.equals(get_message)) {
             Intent i = new Intent(this, Receive.class);
+            this.startActivity(i);
+        } else if (target.equals(prev_message)) {
+            Intent i = new Intent(this, PrevMessage.class);
             this.startActivity(i);
         }
     }

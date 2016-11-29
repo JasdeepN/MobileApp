@@ -14,6 +14,11 @@ then you can log in using your newly created account!
 
 after logging in you can begin drawing your first image and save to your gallery right away!
 
+If you do not wish to make a new account, the following can be used to login:
+E-mail: a@a.com
+Password: aaaaaa
+(Password contains 6 a's)
+
 ##Citations 
 http://stackoverflow.com/questions/16650419/draw-in-canvas-by-finger-android
 

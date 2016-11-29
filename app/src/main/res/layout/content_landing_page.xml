@@ -36,6 +36,12 @@
             android:id="@+id/open_message"/>
 
         <Button
+            android:text="@string/your_previous_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/prev_message"/>
+
+        <Button
             android:text="@string/go_to_canvas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

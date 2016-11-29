@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -20,10 +21,14 @@ import java.util.List;
 
 public class Send extends AppCompatActivity {
     private String data;
+    private ChatDBHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send);
+
+        helper = new ChatDBHelper(this);
+
         Bundle extras = getIntent().getExtras();
         byte[] byteArray = extras.getByteArray("byteArray");
         data = Base64.encodeToString(byteArray, Base64.DEFAULT);
@@ -33,9 +38,11 @@ public class Send extends AppCompatActivity {
     }
 
     public void send(View v){
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
         myRef.setValue(data);
+        helper.updateYourMessage(helper.getChat(FirebaseAuth.getInstance().getCurrentUser().getEmail()), data);
         Intent intent = new Intent();
         intent.putExtra("sent", true);
         setResult(Activity.RESULT_OK, intent);
