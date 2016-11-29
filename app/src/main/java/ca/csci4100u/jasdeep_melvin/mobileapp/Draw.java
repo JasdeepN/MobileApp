@@ -60,7 +60,7 @@ public class Draw extends AppCompatActivity implements View.OnClickListener{
             Bitmap bitmap = DrawingView.getDrawView().getBitmap();
             Intent intent = new Intent(this, Send.class);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
             intent.putExtra("byteArray", stream.toByteArray());
             this.startActivityForResult(intent, 0);
         } else if (target.equals(fab_button)) {
@@ -78,14 +78,11 @@ public class Draw extends AppCompatActivity implements View.OnClickListener{
         if(resultCode == Activity.RESULT_OK) {
             sent = data.getBooleanExtra("sent", false);
             if(sent){
+                DrawingView.getDrawView().clearDrawing();
                 Toast.makeText(getBaseContext(), R.string.draw_sendSuc_toast, Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getBaseContext(), R.string.draw_sendFail_toast, Toast.LENGTH_SHORT).show();
             }
-        }
-
-        if(resultCode==1){
-            DrawingView.getDrawView().saveDrawing();
         }
     }
 }

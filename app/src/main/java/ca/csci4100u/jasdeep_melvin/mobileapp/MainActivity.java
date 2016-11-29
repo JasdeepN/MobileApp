@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button go_to_canvas_button;
     Button log_out_button;
     Button get_contacts;
+    Button get_message;
     ListView list;
     LinearLayout ll;
 
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         get_contacts = (Button)findViewById(R.id.get_contact_button);
         get_contacts.setOnClickListener(MainActivity.this);
 
+        get_message = (Button)findViewById(R.id.open_message);
+        get_message.setOnClickListener(MainActivity.this);
+
         ll = (LinearLayout) findViewById(R.id.landing_page_layout);
         list = (ListView) findViewById(R.id.contact_list_view);
     }
@@ -77,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (target.equals(get_contacts)) {
             LoadContactsAyscn lca = new LoadContactsAyscn();
             lca.execute();
+        } else if (target.equals(get_message)) {
+            Intent i = new Intent(this, Recieve.class);
+            this.startActivity(i);
         }
     }
 

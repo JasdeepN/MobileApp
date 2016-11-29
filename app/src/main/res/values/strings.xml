@@ -30,13 +30,11 @@
     <string name="send_send_btn">Send</string>
     <string name="send_cancel_btn">Cancel</string>
 
-    <string name="title_activity_tool_menu_activity">settings</string>
-    <string name="title_activity_landing_page">landing_page</string>
+    <string name="main_menu">Main menu</string>
 
-    <string name="temporary_landing_page">temporary landing page"</string>
+    <string name="open_message">Open message</string>
+    <string name="go_to_canvas">Go to canvas</string>
+    <string name="logout_button_text">Logout</string>
 
-    <string name="go_to_canvas">go to canvas</string>
-    <string name="logout_button_text">logout</string>
-
-    <string name="get_contacts_button_text">contacts</string>
+    <string name="get_contacts_button_text">Contacts</string>
 </resources>

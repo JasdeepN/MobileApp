@@ -19,10 +19,12 @@ import java.util.List;
 
 public class Send extends AppCompatActivity {
     private String data;
+    private ChatDBHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send);
+
         Bundle extras = getIntent().getExtras();
         byte[] byteArray = extras.getByteArray("byteArray");
         data = Arrays.toString(byteArray);
@@ -37,7 +39,7 @@ public class Send extends AppCompatActivity {
         myRef.setValue(data);
         Intent intent = new Intent();
         intent.putExtra("sent", true);
-        setResult(Activity.RESULT_OK,    intent);
+        setResult(Activity.RESULT_OK, intent);
         this.finish();
     }
 

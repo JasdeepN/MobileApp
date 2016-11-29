@@ -22,12 +22,18 @@
 
 
         <TextView
-            android:text="@string/temporary_landing_page"
+            android:text="@string/main_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
             android:id="@+id/welcome_text" />
+
+        <Button
+            android:text="@string/open_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/open_message"/>
 
         <Button
             android:text="@string/go_to_canvas"
