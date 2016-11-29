@@ -1,7 +1,9 @@
 package ca.csci4100u.jasdeep_melvin.mobileapp;
 
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

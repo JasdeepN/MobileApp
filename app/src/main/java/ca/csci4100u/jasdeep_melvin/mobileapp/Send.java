@@ -37,7 +37,7 @@ public class Send extends AppCompatActivity {
         myRef.setValue(data);
         Intent intent = new Intent();
         intent.putExtra("sent", true);
-        setResult(Activity.RESULT_OK, intent);
+        setResult(Activity.RESULT_OK,    intent);
         this.finish();
     }
 
