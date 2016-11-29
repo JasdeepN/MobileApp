@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button prev_message;
     ListView list;
     LinearLayout ll;
+    public static ChatDBHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +46,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         isStoragePermissionGranted();
         isContactPermissionGranted();
-
+        helper = new ChatDBHelper(this);
         if(FirebaseAuth.getInstance().getCurrentUser() == null) {
             Intent intent = new Intent(this, LoginActivity.class);
             this.startActivity(intent);
+
+        }
+
+        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+            helper.addNewChat(FirebaseAuth.getInstance().getCurrentUser().getEmail());
         }
     }
 
@@ -193,9 +199,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
-            Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
-            //resume tasks needing this permission
+        if(grantResults.length > 0) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG, "Permission: " + permissions[0] + "was " + grantResults[0]);
+                //resume tasks needing this permission
+            }
         }
     }
 }
