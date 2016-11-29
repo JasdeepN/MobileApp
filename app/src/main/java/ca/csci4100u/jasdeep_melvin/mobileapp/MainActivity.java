@@ -52,10 +52,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             this.startActivity(intent);
 
         }
-
-        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
-            helper.addNewChat(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-        }
     }
 
     @Override
@@ -80,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ll = (LinearLayout) findViewById(R.id.landing_page_layout);
         list = (ListView) findViewById(R.id.contact_list_view);
+
+        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+            helper.addNewChat(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        }
     }
 
     @Override
