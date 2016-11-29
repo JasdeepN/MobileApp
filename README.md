@@ -16,7 +16,9 @@ after logging in you can begin drawing your first image and save to your gallery
 
 ##Citations 
 http://stackoverflow.com/questions/16650419/draw-in-canvas-by-finger-android
+
 used to help create custom drawing view and colour picker.
 
 http://stackoverflow.com/questions/12562151/android-get-all-contacts
-used ro help import contacts from address book
+
+used to help import contacts from address book
