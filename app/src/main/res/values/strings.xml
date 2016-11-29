@@ -37,4 +37,7 @@
     <string name="logout_button_text">Logout</string>
 
     <string name="get_contacts_button_text">Contacts</string>
+
+    <string name="notification_name">New Image Received!</string>
+    <string name="notification_msg">Tap here to see new image!</string>
 </resources>

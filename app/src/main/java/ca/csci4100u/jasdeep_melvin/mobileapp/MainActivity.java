@@ -11,13 +11,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.provider.ContactsContract;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -88,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             LoadContactsAyscn lca = new LoadContactsAyscn();
             lca.execute();
         } else if (target.equals(get_message)) {
-            Intent i = new Intent(this, Recieve.class);
+            Intent i = new Intent(this, Receive.class);
             this.startActivity(i);
         }
     }

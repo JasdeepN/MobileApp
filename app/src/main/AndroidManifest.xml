@@ -23,7 +23,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Draw" />
-        <activity android:name=".Recieve"></activity>
+        <activity android:name=".Receive"></activity>
     </application>
 
 </manifest>
