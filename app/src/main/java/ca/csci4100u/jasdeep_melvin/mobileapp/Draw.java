@@ -48,7 +48,6 @@ public class Draw extends AppCompatActivity implements View.OnClickListener{
         color_pick_fab.setOnClickListener(this);
 
         color = DrawingView.getPaint();
-
     }
 
     @Override

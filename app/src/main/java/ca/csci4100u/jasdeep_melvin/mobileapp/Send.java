@@ -20,12 +20,10 @@ import java.util.List;
 
 public class Send extends AppCompatActivity {
     private String data;
-    private ChatDBHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send);
-
         Bundle extras = getIntent().getExtras();
         byte[] byteArray = extras.getByteArray("byteArray");
         data = Base64.encodeToString(byteArray, Base64.DEFAULT);

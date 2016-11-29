@@ -232,7 +232,6 @@ public class DrawingView extends View {
     }
 
 
-
     public static class ColorPicker extends Dialog {
 
         private int mInitialColor;
