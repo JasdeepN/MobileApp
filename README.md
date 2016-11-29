@@ -2,7 +2,7 @@
 ## Mobile application for CSCI-4100u
 ### Created by Jasdeep Nijjar and Melvin Cheng 
 
-##Instalation Intructions
+##Installation Instructions
 install like you would any other android application
 to use this app you must allow read/write access for storage (sd card)
 also must allow read access to contacts (to populate contact list)
