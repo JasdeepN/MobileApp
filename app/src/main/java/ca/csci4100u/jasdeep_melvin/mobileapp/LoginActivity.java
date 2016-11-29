@@ -24,6 +24,7 @@ import static android.content.ContentValues.TAG;
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authListener;
+    public static ChatDBHelper helper;
     final private String TAG = "LoginActivity";
     final private String INVALIDEMAIL = "com.google.firebase.auth.FirebaseAuthInvalidCredentialsException: The email address is badly formatted.";
     final private String EMAILEXISTS = "com.google.firebase.auth.FirebaseAuthInvalidUserException: There is no user record corresponding to this identifier. The user may have been deleted.";
@@ -42,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         firebaseAuth.addAuthStateListener(authListener);
+        helper = new ChatDBHelper(this);
     }
 
     public void register(View v) {
@@ -76,6 +78,9 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(getBaseContext(), R.string.login_loginFail_toast, Toast.LENGTH_SHORT).show();
                             }
                         } else {
+
+
+                            helper.addNewChat(FirebaseAuth.getInstance().getCurrentUser().getEmail());
                             finish();
                         }
                     }

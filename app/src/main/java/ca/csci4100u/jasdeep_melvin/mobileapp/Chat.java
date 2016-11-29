@@ -9,8 +9,14 @@ public class Chat {
     String yourLastMessage;
     String theirLastMessage;
 
-    public Chat(String email) {
+    public Chat(String email, String yours, String my) {
         this.email = email;
+        this.yourLastMessage = yours;
+        this.theirLastMessage = my;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setTheirLastMessage (String message) {

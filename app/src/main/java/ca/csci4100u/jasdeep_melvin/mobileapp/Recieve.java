@@ -9,6 +9,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -16,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Recieve extends AppCompatActivity {
-
+    ChatDBHelper helper = new ChatDBHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,7 @@ public class Recieve extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-                Log.d("Tag",value);
+                helper.updateTheirMessage(helper.getChat(FirebaseAuth.getInstance().getCurrentUser().getEmail()), value);
                 ImageView image = (ImageView)findViewById(R.id.recieve_image_img);
 
                 byte[] byteArray = Base64.decode(value, Base64.DEFAULT);

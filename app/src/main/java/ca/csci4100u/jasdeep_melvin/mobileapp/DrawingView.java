@@ -294,9 +294,9 @@ public class DrawingView extends View {
                 setMeasuredDimension(CENTER_X * 2, CENTER_Y * 2);
             }
 
-            private static final int CENTER_X = 400;
-            private static final int CENTER_Y = 400;
-            private static final int CENTER_RADIUS = 125;
+            private static final int CENTER_X = 200;
+            private static final int CENTER_Y = 200;
+            private static final int CENTER_RADIUS = 80;
 
             private int floatToByte(float x) {
                 return java.lang.Math.round(x);

@@ -32,6 +32,7 @@
 
     <string name="main_menu">Main menu</string>
 
+    <string name="your_previous_message">Your previous message</string>
     <string name="open_message">Open message</string>
     <string name="go_to_canvas">Go to canvas</string>
     <string name="logout_button_text">Logout</string>
