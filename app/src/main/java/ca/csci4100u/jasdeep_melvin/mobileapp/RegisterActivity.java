@@ -16,7 +16,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
-    AccountDBHelper helper;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authListener;
     final private String TAG = "RegisterActivity";
@@ -27,7 +26,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        helper = new AccountDBHelper(this);
         firebaseAuth = FirebaseAuth.getInstance();
         authListener = new FirebaseAuth.AuthStateListener(){
             @Override

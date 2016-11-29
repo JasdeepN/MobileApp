@@ -22,7 +22,6 @@ import com.google.firebase.auth.FirebaseUser;
 import static android.content.ContentValues.TAG;
 
 public class LoginActivity extends AppCompatActivity {
-    private AccountDBHelper helper;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authListener;
     final private String TAG = "LoginActivity";

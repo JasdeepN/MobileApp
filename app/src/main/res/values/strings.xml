@@ -11,7 +11,6 @@
     <string name="login_loginFail_toast">Failed to login</string>
 
 
-
     <string name="register_email_hint">E-mail</string>
     <string name="register_password_hint">Password</string>
     <string name="register_passwordConfirm_hint">Confirm password</string>
@@ -22,6 +21,14 @@
     <string name="register_invalidEmail_toast">Invaild e-mail</string>
     <string name="register_invalidPassword_toast">Password must be 6 &#8211; 20 characters long</string>
     <string name="register_accountCreateFail_toast">Failed to register account</string>
+
+    <string name="draw_sendFail_toast">Drawing did not send</string>
+    <string name="draw_sendSuc_toast">Drawing has been successfully sent</string>
+    <string name="draw_clear_toast">Clear</string>
+    <string name="draw_saveSd_toast">Image has been saved to the SD card</string>
+
+    <string name="send_send_btn">Send</string>
+    <string name="send_cancel_btn">Cancel</string>
 
     <string name="title_activity_tool_menu_activity">settings</string>
     <string name="title_activity_landing_page">landing_page</string>

@@ -227,6 +227,10 @@ public class DrawingView extends View {
         storeImage(whatTheUserDrewBitmap);
     }
 
+    public Bitmap getBitmap() {
+        return getDrawingCache();
+    }
+
 
 
     public static class ColorPicker extends Dialog {

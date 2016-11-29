@@ -53,36 +53,44 @@ public class Draw extends AppCompatActivity implements View.OnClickListener{
         color_pick_fab.setOnClickListener(this);
 
         color = DrawingView.getPaint();
+
     }
 
     @Override
     public void onClick(View target){
         if (target.equals(clear_button)){
-            Toast.makeText(getApplicationContext(), "clear", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.draw_clear_toast, Toast.LENGTH_SHORT).show();
             DrawingView.getDrawView().clearDrawing();
         } else if (target.equals(send_button)){
-            send();
-            Toast.makeText(getApplicationContext(), "send", Toast.LENGTH_SHORT).show();
+            Bitmap bitmap = DrawingView.getDrawView().getBitmap();
+            Intent intent = new Intent(this, Send.class);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            intent.putExtra("byteArray", stream.toByteArray());
+            this.startActivityForResult(intent, 0);
         } else if (target.equals(fab_button)) {
             DrawingView.getDrawView().saveDrawing();
-            Toast.makeText(getApplicationContext(), "image saved to sd card", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.draw_saveSd_toast, Toast.LENGTH_SHORT).show();
         } else if (target.equals(color_pick_fab)) {
             new DrawingView.ColorPicker(this, color.getColor()).show();
         }
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        boolean sent = false;
+        if(resultCode == Activity.RESULT_OK) {
+            sent = data.getBooleanExtra("sent", false);
+            if(sent){
+                Toast.makeText(getBaseContext(), R.string.draw_sendSuc_toast, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getBaseContext(), R.string.draw_sendFail_toast, Toast.LENGTH_SHORT).show();
+            }
+        }
+
         if(resultCode==1){
             DrawingView.getDrawView().saveDrawing();
         }
-    }
-
-    private void send() {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
-
     }
 }
