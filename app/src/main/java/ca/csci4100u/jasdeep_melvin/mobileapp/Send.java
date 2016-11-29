@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,7 +28,7 @@ public class Send extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         byte[] byteArray = extras.getByteArray("byteArray");
-        data = Arrays.toString(byteArray);
+        data = Base64.encodeToString(byteArray, Base64.DEFAULT);
         ImageView image = (ImageView)findViewById(R.id.previewImage);
         Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         image.setImageBitmap(bitmap);

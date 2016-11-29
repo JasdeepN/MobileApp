@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -28,7 +29,8 @@ public class Recieve extends AppCompatActivity {
                 String value = dataSnapshot.getValue(String.class);
                 Log.d("Tag",value);
                 ImageView image = (ImageView)findViewById(R.id.recieve_image_img);
-                byte[] byteArray = value.getBytes();
+
+                byte[] byteArray = Base64.decode(value, Base64.DEFAULT);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
                 image.setImageBitmap(bitmap);
             }
